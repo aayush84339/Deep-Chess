@@ -12,7 +12,25 @@ string solve(int n, vector<long long> a) {
     // TODO: Fill this function.
     // Return one of: "Player 1" or "Player 2" or "Draw"
 
-    return "";
+    vector<long long> maxScoreDiff(n+2, 0);
+    for(int i=n-1; i>=0; i--){
+        int takeOne, takeTwo;
+        // take one element
+        takeOne = a[i] - maxScoreDiff[i+1];
+        // take two elements
+        if(i!=n-1){
+            takeTwo = a[i] + a[i+1] - maxScoreDiff[i+2];
+        }
+        // storing the maximum score difference possible from i when player starts at i
+        if(i!=n-1){
+            maxScoreDiff[i] = max(takeOne, takeTwo);
+        }
+        else maxScoreDiff[i] = takeOne;
+    }
+    // player1 score - player2 score = maxScoreDiff[0]
+    if(maxScoreDiff[0] > 0) return "Player 1";
+    else if(maxScoreDiff[0] == 0) return "Draw";
+    else return "Player 2";
 }
 
 static string trim(const string &s) {
