@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deep Chess Lab</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <main class="app-shell">
+        <section class="panel">
+            <h1>Deep Chess Lab</h1>
+            <p class="tagline">Human vs Bot</p>
+
+            <div class="controls">
+                <button class="bot-btn" data-bot="basic">Basic Bot</button>
+                <button class="bot-btn" data-bot="advanced">Advanced Bot</button>
+                <button id="newGameBtn" class="ghost-btn">New Game</button>
+            </div>
+
+            <div id="status" class="status-box">Pick a bot and start a game.</div>
+        </section>
+
+        <section class="board-wrap">
+            <div id="board" class="board" aria-label="Chess board"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
